@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "html2docx-improved"
+version = "0.1.0"
+authors = [
+  { name="Your Name", email="youremail@example.com" },
+]
+description = "A Python library to convert HTML to DOCX with improved handling of tables, lists, and other elements."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing :: Markup :: HTML",
+    "Topic :: Office/Business :: Office Suites",
+]
+
+dependencies = [
+    "python-docx",
+    "beautifulsoup4",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/your-username/html2docx"
+"Bug Tracker" = "https://github.com/your-username/html2docx/issues"
