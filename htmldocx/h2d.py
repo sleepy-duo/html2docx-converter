@@ -8,6 +8,7 @@ with a focus on handling complex structures like nested lists and merged table c
 import re, argparse
 import io, os
 import urllib.request
+import urllib.error
 from urllib.parse import urlparse
 from html.parser import HTMLParser
 
