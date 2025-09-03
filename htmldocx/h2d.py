@@ -427,6 +427,10 @@ class HtmlToDocx(HTMLParser):
             elif child.name in ['ul', 'ol']:
                 # Handles malformed lists where a list is a direct child of another list.
                 self.handle_list(child, parent, level + 1)
+            
+            else:
+                # Handles other elements found directly inside a list, which is malformed HTML.
+                self._parse_elements([child], self.doc)
 
     def _parse_list_item_content(self, item, p, level):
         """Parses the content of an `<li>` element."""
