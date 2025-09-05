@@ -299,12 +299,13 @@ class HtmlToDocx(HTMLParser):
                 elif element.name == 'hr':
                     self.handle_hr(parent)
                 elif element.name == 'br':
-                    if isinstance(parent, docx.document.Document):
-                        p = parent.add_paragraph()
+                    if isinstance(parent, docx.text.paragraph.Paragraph):
+                        p = parent
+                    elif parent.paragraphs:
+                        p = parent.paragraphs[-1]
                     else:
-                        p = parent.paragraphs[-1] if parent.paragraphs else parent.add_paragraph()
-                    if p.runs:
-                        p.runs[-1].add_break()
+                        p = parent.add_paragraph()
+                    p.add_run().add_break()
                 elif element.name == 'img':
                     self.handle_img(element.attrs, parent)
                 elif element.name in font_styles or element.name in font_names:
